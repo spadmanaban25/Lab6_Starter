@@ -6,7 +6,14 @@ class RecipeCard extends HTMLElement {
   constructor() {
     super(); // Inheret everything from HTMLElement
 
-    let shadowDom = this.attachShadow({mode: 'open'});
+    // EXPOSE - START (All expose numbers start with A)
+    // A1. TODO - Attach the shadow DOM to this Web Component (leave the mode open) - complete
+    // A2. TODO - Create an <article> element - This will hold our markup once our data is set
+    // A3. TODO - Create a style element - This will hold all of the styles for the Web Component
+    // A4. TODO - Insert all of the styles from cardTemplate.html into the <style> element you just made
+    // A5. TODO - Append the <style> and <article> elements to the Shadow DOM
+
+    let shadowDom = this.attachShadow({ mode: 'open' });
     let articleElem = document.createElement('article');
     let styleElem = document.createElement('style');
     styleElem.innerHTML = `* {
@@ -85,17 +92,9 @@ class RecipeCard extends HTMLElement {
       font-size: 12px;
     }`;
 
-  shadowDom.append(articleElem);
-  shadowDom.append(styleElem);
+    shadowDom.append(articleElem);
+    shadowDom.append(styleElem);
 
-  
-
-    // EXPOSE - START (All expose numbers start with A)
-    // A1. TODO - Attach the shadow DOM to this Web Component (leave the mode open) - complete
-    // A2. TODO - Create an <article> element - This will hold our markup once our data is set
-    // A3. TODO - Create a style element - This will hold all of the styles for the Web Component
-    // A4. TODO - Insert all of the styles from cardTemplate.html into the <style> element you just made
-    // A5. TODO - Append the <style> and <article> elements to the Shadow DOM
   }
 
   /**
@@ -122,6 +121,13 @@ class RecipeCard extends HTMLElement {
   set data(data) {
     // If nothing was passed in, return
     if (!data) return;
+
+    // A6. TODO - Select the <article> we added to the Shadow DOM in the constructor
+    // A7. TODO - Set the contents of the <article> with the <article> template given in
+    //           cardTemplate.html and the data passed in (You should only have one <article>,
+    //           do not nest an <article> inside another <article>). You should use Template
+    //           literals (tempalte strings) and element.innerHTML for this.
+    
     let article = this.shadowRoot.querySelector('article');
     article.innerHTML = `<img src="${data.imgSrc}"
     alt="${data.imgAlt}">
@@ -138,17 +144,14 @@ class RecipeCard extends HTMLElement {
   <p class="ingredients">
     ${data.ingredients}
   </p>`;
-  
 
-    // A6. TODO - Select the <article> we added to the Shadow DOM in the constructor
-    // A7. TODO - Set the contents of the <article> with the <article> template given in
-    //           cardTemplate.html and the data passed in (You should only have one <article>,
-    //           do not nest an <article> inside another <article>). You should use Template
-    //           literals (tempalte strings) and element.innerHTML for this.
+
+
   }
 }
+// A8. TODO - Define the Class as a customElement so that you can create
+//           'recipe-card' elements
 
 customElements.define('recipe-card', RecipeCard);
 
-// A8. TODO - Define the Class as a customElement so that you can create
-//           'recipe-card' elements
+
