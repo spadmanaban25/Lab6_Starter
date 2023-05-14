@@ -130,7 +130,7 @@ class RecipeCard extends HTMLElement {
     //           literals (tempalte strings) and element.innerHTML for this. - x
     
     let article = this.shadowRoot.querySelector('article');
-    article.innerHTML = `<img src=".${data.imgSrc}"
+    article.innerHTML = `<img src="${data.imgSrc}"
     alt="${data.imgAlt}">
   <p class="title">
     <a href="${data.titleLnk}">${data.titleTxt}</a>
@@ -138,7 +138,7 @@ class RecipeCard extends HTMLElement {
   <p class="organization">${data.organization}</p>
   <div class="rating">
     <span>${data.rating}</span>
-    <img src="/assets/images/icons/${data.rating}-star.svg" alt="${data.rating} stars">
+    <img src="./assets/images/icons/${data.rating}-star.svg" alt="${data.rating} stars">
     <span>(${data.numRatings})</span>
   </div>
   <time>${data.lengthTime}</time>
